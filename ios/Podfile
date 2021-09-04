@@ -12,6 +12,8 @@ target 'Rick_Morty_App' do
     :hermes_enabled => false
   )
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'Rick_Morty_AppTests' do
     inherit! :complete
     # Pods for testing

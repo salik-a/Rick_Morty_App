@@ -35,7 +35,7 @@ const ThirdPage = ({ navigation,route}) => {
     };
 
     if (loading) {
-        return <LottieView source= { require('./../../assets/animation/loading.json')} autoPlay loop/>;
+        return <LottieView source={require('./../../assets/animation/loading.json')} autoPlay loop style={{ backgroundColor: "#3c3e44" }} />;
     };
 
     return (

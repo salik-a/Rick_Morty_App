@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import { Text, View, Button, FlatList, TouchableOpacity } from 'react-native';
 import axios from 'axios';
-
+import styles from './EpisodePageStyle'
 import CharacterCard from './../../components/CharacterCard/CharacterCard'
 import LottieView from 'lottie-react-native';
 
@@ -33,16 +33,19 @@ const EpisodePage = ({ route, navigation }) => {
     };
 
     if (loading) { 
-        return <LottieView source= { require('./../../assets/animation/loading.json')} autoPlay loop/>;
+        return <LottieView source={require('./../../assets/animation/loading.json')} autoPlay loop style={{ backgroundColor: "#3c3e44" }} />;
     }
     
     return (
-        <View>
-            <Text>{episodePageData.id}</Text>
-            <Text>{episodePageData.name}</Text>
-            <Text>{episodePageData.air_date}</Text>
+        <View style={styles.container}>
+            <View style={styles.nameContainer}>
+                <Text style={styles.name}>{episodePageData.name}</Text>
+            </View>
+
+
             <Text>{episodePageData.episode}</Text>
-            <Text>{episodePageData.url}</Text>
+            <Text>{episodePageData.air_date}</Text>
+
             <Text>{episodePageData.created}</Text>
 
             <FlatList
