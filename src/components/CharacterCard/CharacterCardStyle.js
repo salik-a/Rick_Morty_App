@@ -4,22 +4,35 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        padding:15,
-        
-        
-        margin: 10,
+        margin: 15,
         borderRadius: 10,
-        backgroundColor: "white",
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
+        backgroundColor: "#24282f",
+        shadowColor: 'white',
+        shadowOffset: { width: 4, height: 4 },
         shadowOpacity: 0.8,
         shadowRadius: 2,  
-        elevation: 5
+        elevation: 25
+
+    },
+    innerContainer: {
+        alignItems: "center",
+        justifyContent: "center",
         
     },
     image: {
-        
+        width: "100%",
+        height: 100,
+        borderRadius: 10,
     },
+    name: {
+        fontSize: 16,
+        color: "#f0f8ff"
+    },
+    nameContainer: {
+        alignItems: "center",
+        justifyContent: "center",
+        margin: 5
+    }
     
   
 });

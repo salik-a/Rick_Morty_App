@@ -1,19 +1,26 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
 import styles from './EpisodeCardStyle'
-
-const EpisodeCard = ( {episode, onSelect} ) => {
-    
+import Ionicons from 'react-native-vector-icons/Ionicons';
+const EpisodeCard = ({ episode, onSelect }) => {
     
     return (
         <TouchableWithoutFeedback   onPress={onSelect}>
             <View style={styles.container} >
-                <Text>{episode.id}</Text>
-                <Text>{episode.name}</Text>
-                <Text>{episode.episode}</Text>
-                <Text>{episode.created}</Text>
-                <Text>{episode.air_date}</Text>
-                <Text>{episode.url}</Text>
+
+                <View style={styles.nameContainer}>
+                    <Text style={styles.name}>{episode.id} - {episode.name}</Text>
+                </View>
+                <View style={styles.createdContainer}>
+                    <Text style={styles.created}>{episode.created}</Text>
+                </View>
+                <View style={styles.dateContainer}>
+                    <Text style={styles.air_date}>{episode.air_date}</Text>
+                </View>
+                <TouchableOpacity style={styles.episodeContainer} onPress={onSelect}>
+                    <Ionicons name="play-outline" color={"white"} size={20} />
+                    <Text style={styles.episode}>{episode.episode}</Text>
+                </TouchableOpacity>
                 
             </View>
         </TouchableWithoutFeedback>

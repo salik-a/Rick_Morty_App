@@ -17,7 +17,6 @@ const CharacterCard = ( {characters, onSelect} ) => {
             //setError(error.message);
             //setLoading(false);
         }
-    
     };
     
     useEffect(() => {
@@ -25,12 +24,21 @@ const CharacterCard = ( {characters, onSelect} ) => {
     }, []);
     
     return (
-        <TouchableWithoutFeedback onPress={onSelect}  >
+        <TouchableWithoutFeedback onPress={onSelect} >
             <View style={styles.container} >
-                <Text>
-                    {characterData.name}
-                </Text>
-                
+                <View style={styles.innerContainer} >
+                    <Image
+                        style={styles.image}
+                        source={{
+                            uri: `${characterData.image}`,
+                        }}
+                    />
+                    <View style={styles.nameContainer}>
+                        <Text style={styles.name}>
+                            {characterData.name}
+                        </Text>
+                    </View>
+                </View>
             </View>
         </TouchableWithoutFeedback>
     );

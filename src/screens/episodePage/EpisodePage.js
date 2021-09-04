@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { Text, View, Button, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, Button, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import axios from 'axios';
 import styles from './EpisodePageStyle'
 import CharacterCard from './../../components/CharacterCard/CharacterCard'
@@ -33,26 +33,38 @@ const EpisodePage = ({ route, navigation }) => {
     };
 
     if (loading) { 
-        return <LottieView source={require('./../../assets/animation/loading.json')} autoPlay loop style={{ backgroundColor: "#3c3e44" }} />;
+        return <LottieView source={require('./../../assets/animation/loading.json')} autoPlay loop style={{ backgroundColor: "rgba(60,62,68,0.9)" }} />;
     }
     
     return (
         <View style={styles.container}>
-            <View style={styles.nameContainer}>
-                <Text style={styles.name}>{episodePageData.name}</Text>
-            </View>
+            <ImageBackground source={{ uri: "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg" }} resizeMode="cover" style={{ flex: 1 }}>
+                <View style={styles.innerContainer}>
+                    <View style={styles.nameContainer}>
+                        <Text style={styles.name}>{episodePageData.name}</Text>
+                    </View>
+                    <View style={styles.createdContainer}>
+                        <Text style={styles.created}>{episodePageData.created}</Text>
+                    </View>
+                    <View style={styles.bottomContainer}>
+                        <Text style={styles.episode}>{episodePageData.episode}</Text>
+                        <Text style={styles.line}> - </Text>
+                        <Text style={styles.air_date}>{episodePageData.air_date}</Text>
+                    </View>
+                    <View style={styles.characterContainer}>
+                        <Text style={styles.character}>Characters:</Text>
+                    </View>
+                    <FlatList
+                        data={episodePageData.characters}
+                        renderItem={({ item }) => <CharacterCard characters={item} onSelect={() => handleCharacterSelect(item)} />}
+                        keyExtractor={(item, index) => index.toString()}
+                        numColumns={"3"}
+                    />
+                </View>
 
 
-            <Text>{episodePageData.episode}</Text>
-            <Text>{episodePageData.air_date}</Text>
 
-            <Text>{episodePageData.created}</Text>
-
-            <FlatList
-                data={episodePageData.characters}
-                renderItem={({item}) => <CharacterCard characters={item} onSelect={()=>handleCharacterSelect(item)} />}
-                keyExtractor={(item, index) => index.toString()}
-            />
+            </ImageBackground>
         </View>
     );
 }
