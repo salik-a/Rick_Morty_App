@@ -8,34 +8,40 @@ import LottieView from 'lottie-react-native';
 
 const EpisodePage = ({ route, navigation }) => {
    
+   //variables are defined to save the called data and show the opening animation
     const [episodePageData, setEpisodePageData] = useState([]);
     const [loading, setLoading] = useState(true);
-    //const [error, setError] = useState(null);
 
+   // data is called using axios library and saved to state 
     const fetchData = async () => {
         try {
             const { data } = await axios.get(`${route.params.url}`);
             setEpisodePageData(data);
             
         } catch (error) {
-            //setError(error.message);
-            //setLoading(false);
+            console.log(error)
         }
+        // close opening animation after data loaded
         setLoading(false);
     };
+
+    //Animation is showing and data is calling while opening the page
     useEffect(() => {
         fetchData()
     }, []);
     
-    
+    // when clicked on the character cards switches to the character page
     const handleCharacterSelect = (url) => {
         navigation.navigate('CharacterPage', { url })
     };
 
+    //opening animation defined
     if (loading) { 
         return <LottieView source={require('./../../assets/animation/loading.json')} autoPlay loop style={{ backgroundColor: "rgba(60,62,68,0.9)" }} />;
     }
     
+    // on the screen the information about the episode is displayed and the characters are listed
+// when clicked the characters,  goes to the character page
     return (
         <View style={styles.container}>
             <ImageBackground source={{ uri: "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg" }} resizeMode="cover" style={{ flex: 1 }}>
@@ -61,9 +67,6 @@ const EpisodePage = ({ route, navigation }) => {
                         numColumns={"3"}
                     />
                 </View>
-
-
-
             </ImageBackground>
         </View>
     );

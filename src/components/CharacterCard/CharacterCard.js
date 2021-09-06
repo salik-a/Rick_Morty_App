@@ -3,26 +3,28 @@ import { View, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-n
 import styles from './CharacterCardStyle';
 import axios from 'axios';
 
-const CharacterCard = ( {characters, onSelect} ) => {
-     const [characterData, setCharacterData] = useState([]);
-    //const [loading, setLoading] = useState(true);
-    //const [error, setError] = useState(null);
+const CharacterCard = ({ characters, onSelect }) => {
 
+    //variables are defined to save the called data 
+    const [characterData, setCharacterData] = useState([]);
+
+    // data is called using axios library and saved to state 
     const fetchData = async () => {
         try {
             const { data } = await axios.get(`${characters}`);
             setCharacterData(data);
-            //setLoading(false);
+
         } catch (error) {
-            //setError(error.message);
-            //setLoading(false);
+            console.log(error)
         }
     };
     
+    //data is calling while opening the page
     useEffect(() => {
         fetchData()
     }, []);
     
+    //information about characters showed on the cards
     return (
         <TouchableWithoutFeedback onPress={onSelect} >
             <View style={styles.container} >

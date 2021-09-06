@@ -4,6 +4,7 @@ import styles from './EpisodeCardStyle'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const EpisodeCard = ({ episode, onSelect }) => {
     
+     //information about episodes showed on the cards
     return (
         <TouchableWithoutFeedback   onPress={onSelect}>
             <View style={styles.container} >
