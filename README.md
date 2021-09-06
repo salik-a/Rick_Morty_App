@@ -14,7 +14,7 @@
 
 ## Running Project
 
-In this project, 
+In this project, I created an App to show information abouts Rick and Morty episodes using Rick and Morty Api. When you open App first you will see opening screen. Then main page open. Click go episodes button. Then first page will open. There is 3 page to show episodes. I used axios package to call episodes data. Episodes shown as a card. When you click the episode cards, you will go to the episode page. In this page wou can see information about that episode. Characters shown as a card. When you click the character cards, you will go to the character page. In this page wou can see information about that character. Also you will see a funny animation on page transitions.
 
 After the project is downloaded, the project is opened with the 'Visual Studio Code' editor.
 
