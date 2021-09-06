@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, Button, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import axios from 'axios';
 import EpisodeCard from './../../components/EpisodeCard/EpisodeCard'
@@ -17,35 +17,29 @@ const FirstPage = ({ navigation }) => {
         try {
             const { data } = await axios.get("https://rickandmortyapi.com/api/episode");
             setFirstPageData(data);
-            
+
         } catch (error) {
             //setError(error.message);
             //setLoading(false);
         }
-        await delay(1000);
+        await delay(250);
         setLoading(false);
     };
 
     const handleNext = (data) => {
         navigation.navigate('SecondPage', { data })
-        
-    } 
+
+    }
     useEffect(() => {
         fetchData()
     }, []);
-    
+
     const handleCardSelect = (url) => {
         navigation.navigate('EpisodePage', { url })
     };
-    
-    if (loading) { 
-        return (
-            <View style={styles.container}>
-                <ImageBackground source={{ uri: "https://d2lzb5v10mb0lj.cloudfront.net/covers/600/30/3007790.jpg" }} resizeMode="cover" style={{ flex: 1 }}>
 
-                </ImageBackground>
-            </View>
-        )
+    if (loading) {
+        return <LottieView source={require('./../../assets/animation/loading.json')} autoPlay loop style={{ backgroundColor: "rgba(60,62,68,0.9)" }} />;
     }
     return (
         <View style={styles.container}>

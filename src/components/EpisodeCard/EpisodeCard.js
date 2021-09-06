@@ -17,7 +17,7 @@ const EpisodeCard = ({ episode, onSelect }) => {
                 <View style={styles.dateContainer}>
                     <Text style={styles.air_date}>{episode.air_date}</Text>
                 </View>
-                <TouchableOpacity style={styles.episodeContainer} onPress={onSelect}>
+                <TouchableOpacity style={styles.episodeContainer} onPress={onSelect} >
                     <Ionicons name="play-outline" color={"white"} size={20} />
                     <Text style={styles.episode}>{episode.episode}</Text>
                 </TouchableOpacity>
