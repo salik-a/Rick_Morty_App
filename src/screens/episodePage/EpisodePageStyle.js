@@ -48,7 +48,7 @@ export default StyleSheet.create({
         fontSize: 26,
     },
     nameContainer: {
-        marginTop: 25,
+        marginTop: 20,
         alignItems: "center",
         justifyContent: "center",
     },
@@ -71,5 +71,15 @@ export default StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center"
-    }
+    },
+    episodeContainer: {
+        padding: 5,
+        marginVertical: 5,
+        marginHorizontal: 100,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(0,0,0,0.8)",
+        borderRadius: 20
+    },
 });

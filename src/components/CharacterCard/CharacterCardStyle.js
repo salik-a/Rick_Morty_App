@@ -4,7 +4,7 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        margin: 15,
+        margin: 12,
         borderRadius: 10,
         backgroundColor: "#24282f",
         shadowColor: 'white',

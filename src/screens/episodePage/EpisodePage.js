@@ -4,7 +4,7 @@ import axios from 'axios';
 import styles from './EpisodePageStyle'
 import CharacterCard from './../../components/CharacterCard/CharacterCard'
 import LottieView from 'lottie-react-native';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const EpisodePage = ({ route, navigation }) => {
    
@@ -35,6 +35,10 @@ const EpisodePage = ({ route, navigation }) => {
         navigation.navigate('CharacterPage', { url })
     };
 
+    const watch = () => {
+        navigation.navigate('WatchPage', { episodePageData })
+    };
+
     //opening animation defined
     if (loading) { 
         return <LottieView source={require('./../../assets/animation/loading.json')} autoPlay loop style={{ backgroundColor: "rgba(60,62,68,0.9)" }} />;
@@ -57,6 +61,10 @@ const EpisodePage = ({ route, navigation }) => {
                         <Text style={styles.line}> - </Text>
                         <Text style={styles.air_date}>{episodePageData.air_date}</Text>
                     </View>
+                    <TouchableOpacity style={styles.episodeContainer} onPress={() => watch()}>
+                        <Ionicons name="play-outline" color={"white"} size={20} />
+                        <Text style={styles.episode}>Watch</Text>
+                    </TouchableOpacity>
                     <View style={styles.characterContainer}>
                         <Text style={styles.character}>Characters:</Text>
                     </View>

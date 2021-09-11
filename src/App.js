@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import {MainPage,FirstPage, SecondPage, ThirdPage } from './screens/pages'
+import { MainPage, FirstPage, SecondPage, ThirdPage, WatchPage } from './screens/pages'
 import {CharacterPage} from './screens/characterPage/CharacterPage'
 import {EpisodePage} from './screens/episodePage/EpisodePage'
 
@@ -20,6 +20,7 @@ const App = () => {
         <Stack.Screen name="ThirdPage" component={ThirdPage} />
         <Stack.Screen name="CharacterPage" component={CharacterPage} />
         <Stack.Screen name="EpisodePage" component={EpisodePage} />
+        <Stack.Screen name="WatchPage" component={WatchPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
